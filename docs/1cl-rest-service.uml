@@ -1,0 +1,12 @@
+@startuml
+class "tvarkau-vilniu-ms" as application <<Application>>
+class "UserResource" as userResource <<Resource>> {
+  getUserProfile()
+} 
+class "Token" as token <<Resource>> {
+  acquireToken()
+}
+  
+application - userResource: /user
+userResource - token: /token 
+@enduml

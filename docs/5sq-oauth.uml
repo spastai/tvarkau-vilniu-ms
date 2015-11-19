@@ -1,0 +1,14 @@
+@startuml
+participant "Android app" as app
+participant "OAuth2 Authorization server" as oautServer
+participant "Backend" as backend
+participant "Userinfo service" as userinfo
+
+app -> oautServer: Token request
+app -> oautServer: Username / password
+app <-- oautServer: token
+app -> backend: Resource request\nX-Auth-Token: token
+backend -> userinfo: User information request + token
+backend <-- userinfo: User information
+
+@enduml
